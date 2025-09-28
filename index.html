@@ -58,10 +58,11 @@
             margin-bottom: 20px;
         }
 
-        .logo-placeholder {
-            width: 50px;
+        /* NEW: Style for the actual logo image */
+        .logo-image {
+            width: 50px; /* Match the previous placeholder size */
             height: 50px;
-            background-color: #555; /* Placeholder for your logo image */
+            object-fit: cover;
             margin-right: 15px;
             border-radius: 6px;
         }
@@ -232,6 +233,14 @@
                 margin-top: 0; /* Remove auto margin on small screens */
             }
         }
+        
+        /* Style the Imgur Embed to fit nicely below the code area */
+        .imgur-embed-pub {
+            margin-top: 30px;
+            max-width: 100%; /* Ensure it doesn't overflow */
+            overflow: hidden;
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -240,7 +249,6 @@
     <div class="main-card">
         <div class="main-content">
             <div class="header">
-                <div class="logo-placeholder"></div>
                 <div class="title-area">
                     <h1>XARDRIC</h1>
                     <p>NVOZ OWNED XARDRIC REPOS.</p>
@@ -265,15 +273,18 @@ getgenv().Configuration = {
     DropPos    = Vector3.new(-264, -13, -378)    -- setup / drop position
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/heads/main/test"))()
-
--- Placeholder text for the design. Replace this with your actual, safe code.
             </textarea>
 
             <div class="button-group">
                 <button id="select-button">Select</button>
                 <button id="copy-button">COPY</button>
             </div>
-        </div>
+            
+            <div class="imgur-embed-container">
+                <p>--- ICON Embed ---</p>
+                <blockquote class="imgur-embed-pub" lang="en" data-id="a/yxJMxH2" ><a href="//imgur.com/a/yxJMxH2">ICON</a></blockquote>
+            </div>
+            </div>
 
         <div class="sidebar">
             <div class="sidebar-section">
@@ -308,12 +319,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
         // Function to copy the script content
         copyButton.addEventListener('click', async () => {
             try {
-                // Use the modern Clipboard API
                 await navigator.clipboard.writeText(scriptArea.value);
                 
                 // Temporary feedback
                 copyButton.textContent = 'Copied!';
-                copyButton.style.backgroundColor = '#4CAF50'; // Green feedback
+                copyButton.style.backgroundColor = '#4CAF50';
                 
                 setTimeout(() => {
                     copyButton.textContent = 'COPY';
@@ -321,7 +331,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
                 }, 1500);
 
             } catch (err) {
-                // Fallback for older browsers
                 console.error('Failed to copy text: ', err);
                 scriptArea.select();
                 document.execCommand('copy');
@@ -332,10 +341,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
         // Function to select all text
         selectButton.addEventListener('click', () => {
             scriptArea.select();
-            // For mobile devices, you might want to show a focus state or prompt.
             alert('Script text has been selected. Press COPY or Ctrl+C / Cmd+C.');
         });
     </script>
+    
+    <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 </body>
 </html>
