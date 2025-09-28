@@ -38,7 +38,6 @@
   header{display:flex;gap:18px;align-items:center}
   .logo{width:96px;height:96px;border-radius:12px;overflow:hidden;border:1px solid var(--glass);
     background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)); display:flex;align-items:center;justify-content:center;}
-  .logo img{width:100%;height:100%;object-fit:contain;display:block;}
   .title h1{margin:0;font-size:30px;letter-spacing:1px;font-weight:800;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.45)}
   .title p{margin:6px 0 0 0;color:rgba(255,255,255,0.8);font-size:13px}
 
@@ -84,24 +83,24 @@
 
   .credits{margin-top:auto;padding:10px;border-radius:10px;background:rgba(0,0,0,0.36);text-align:center;color:rgba(255,255,255,0.78);font-weight:700;border:1px solid rgba(255,255,255,0.03)}
 
-  .warning{
-    background:linear-gradient(180deg, rgba(255,200,200,0.06), rgba(0,0,0,0.04)); padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
-    color: #ffe8e8; font-weight:700; margin-top:10px;
-  }
-
   .toast{
     position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:rgba(6,10,12,0.9);color:#eaf6ff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:all .18s ease;box-shadow:0 10px 40px rgba(0,0,0,0.5)
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);pointer-events:auto}
 
   @media(max-width:980px){ .main{flex-direction:column} .right{width:100%} .codebox{min-height:220px} }
-
 </style>
 </head>
 <body>
   <div class="container" role="main" aria-labelledby="siteTitle">
     <header>
-      <div class="logo" aria-hidden="true"><img src="logo.png" alt="XARDRIC logo"></div>
+      <div class="logo" aria-hidden="true">
+        <!-- Imgur embed -->
+        <blockquote class="imgur-embed-pub" lang="en" data-id="a/yxJMxH2">
+          <a href="//imgur.com/a/yxJMxH2">ICON</a>
+        </blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+      </div>
       <div class="title">
         <h1 id="siteTitle">XARDRIC</h1>
         <p>NV0Z OWNED XARDRIC REPOS.</p>
@@ -114,27 +113,17 @@
           <div class="codeTitle">
             <div style="display:flex;gap:10px;align-items:center">
               <div class="label">XARDRIC</div>
-              <div style="color:rgba(255,255,255,0.85);font-weight:700">Public paste</div>
+              <div style="color:rgba(255,255,255,0.85);font-weight:700">Privately owned</div>
             </div>
-            <div style="color:rgba(255,255,255,0.75);font-size:13px">Copy the text below for local use</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:13px">Copy the text below</div>
           </div>
 
-          <!-- IMPORTANT: actual exploit code is intentionally NOT provided here -->
+          <!-- Replace placeholder with your actual code locally -->
           <pre id="codeBox" class="codebox" aria-label="Script content">
-getgenv()._ = "Script loaded from my repo | Free to use. Do NOT pay for this."
-
-getgenv().Configuration = {
-    OwnerId    = 9435815542,                     -- your main account user id
-    DropAmount = "15000",                        -- amount argument the script uses
-    DropDelay  = 0.5,                            -- delay used inside the drop loop (in seconds)
-    DropPos    = Vector3.new(-264, -13, -378)    -- setup / drop position
-}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/heads/main/test"))()
+-- Placeholder code snippet
+-- Paste your script content here
+print("Hello from XARDRIC")
           </pre>
-
-          <div class="warning" role="alert">
-            ⚠️ THIS SCRIPT IS OWNED BY NV0Z DO NOT CLAIM!
-          </div>
 
           <div class="controls" role="toolbar" aria-label="Copy controls">
             <button class="btn ghost" id="selectBtn">Select</button>
@@ -155,9 +144,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
 
         <div class="card panel">
           <h3>Usage & Rules</h3>
-          <p>• Do not sell or claim this script as yours. <br>
+          <p>• Do not sell or claim this site as yours. <br>
              • Do not spread misleading information. <br>
-             • Do not impersonate / steal the code of this site or script.</p>
+             • Do not impersonate / steal this code or design.</p>
         </div>
 
         <div class="card panel credits" aria-label="Credits">
@@ -176,45 +165,36 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
   const selectBtn = document.getElementById('selectBtn');
   const toast = document.getElementById('toast');
 
-  // Copy handler - copies the visible text in the code box
+  // Copy handler
   async function copyContent() {
     const text = codeBox.textContent || '';
-    if (!text.trim()) {
-      showToast('Nothing to copy');
-      return;
-    }
+    if (!text.trim()) { showToast('Nothing to copy'); return; }
     try {
       await navigator.clipboard.writeText(text);
       showToast('Copied to clipboard');
     } catch (err) {
-      // fallback
       const range = document.createRange();
       range.selectNodeContents(codeBox);
       const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
+      sel.removeAllRanges(); sel.addRange(range);
       try {
-        document.execCommand('copy');
-        showToast('Copied to clipboard');
-      } catch (e) {
-        showToast('Copy failed — select manually');
-      }
+        document.execCommand('copy'); showToast('Copied to clipboard');
+      } catch { showToast('Copy failed — select manually'); }
       sel.removeAllRanges();
     }
   }
   copyBtn.addEventListener('click', copyContent);
 
-  // Select button: selects code for manual copy
+  // Select button
   selectBtn.addEventListener('click', () => {
     const range = document.createRange();
     range.selectNodeContents(codeBox);
     const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
+    sel.removeAllRanges(); sel.addRange(range);
     showToast('Selected — press Ctrl/Cmd+C');
   });
 
-  // Simple toast
+  // Toast
   let timer = null;
   function showToast(msg='') {
     toast.textContent = msg || 'Done';
@@ -222,22 +202,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
     clearTimeout(timer);
     timer = setTimeout(() => toast.classList.remove('show'), 2000);
   }
-
-  // prevent accidental drag-drop replacing the contents
-  codeBox.addEventListener('drop', (e) => {
-    e.preventDefault();
-    showToast('Drop disabled (paste locally instead)');
-  });
-
-  // Accessibility: allow Ctrl/Cmd+Enter to copy
-  window.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-      if (document.activeElement === codeBox || document.activeElement === document.body) {
-        e.preventDefault();
-        copyContent();
-      }
-    }
-  });
 </script>
 </body>
 </html>
