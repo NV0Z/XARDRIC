@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XARDRIC - Script Repository</title>
+    
+    <link rel="icon" type="image/png" href="https://i.imgur.com/T4DEeVu.png">
+
     <style>
         /* CSS Variables for easy color adjustments */
         :root {
@@ -12,9 +15,9 @@
             --header-bg: #e0e0e0;
             --text-color: #333;
             --dark-panel-bg: #1c1c1e;
-            --code-bg: #282a36; /* Darker, sleek code background */
+            --code-bg: #282a36; 
             --button-primary: #555;
-            --button-secondary: #007aff; /* Apple-like blue for Copy */
+            --button-secondary: #007aff;
         }
 
         /* --- Global Styling and Moving Gradient Background --- */
@@ -58,9 +61,9 @@
             margin-bottom: 20px;
         }
 
-        /* NEW: Style for the actual logo image */
+        /* Style for the actual logo image */
         .logo-image {
-            width: 50px; /* Match the previous placeholder size */
+            width: 50px; 
             height: 50px;
             object-fit: cover;
             margin-right: 15px;
@@ -121,7 +124,7 @@
             white-space: pre;
             overflow-x: auto;
             border: none;
-            resize: none; /* Disable resizing the textarea */
+            resize: none; 
             box-sizing: border-box;
             width: 100%;
         }
@@ -216,7 +219,7 @@
             text-align: center;
             font-size: 0.9em;
             color: #666;
-            margin-top: auto; /* Pushes the credits to the bottom of the sidebar */
+            margin-top: auto; 
         }
         
         /* --- Responsiveness for Smaller Screens --- */
@@ -230,18 +233,9 @@
                 width: 100%;
             }
             .credits-panel {
-                margin-top: 0; /* Remove auto margin on small screens */
+                margin-top: 0; 
             }
         }
-        
-        /* Style the Imgur Embed to fit nicely below the code area */
-        .imgur-embed-pub {
-            margin-top: 30px;
-            max-width: 100%; /* Ensure it doesn't overflow */
-            overflow: hidden;
-            text-align: center;
-        }
-
     </style>
 </head>
 <body>
@@ -249,6 +243,8 @@
     <div class="main-card">
         <div class="main-content">
             <div class="header">
+                <img src="https://i.imgur.com/T4DEeVu.png" alt="XARDRIC Logo" class="logo-image">
+
                 <div class="title-area">
                     <h1>XARDRIC</h1>
                     <p>NVOZ OWNED XARDRIC REPOS.</p>
@@ -280,11 +276,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
                 <button id="copy-button">COPY</button>
             </div>
             
-            <div class="imgur-embed-container">
-                <p>--- ICON Embed ---</p>
-                <blockquote class="imgur-embed-pub" lang="en" data-id="a/yxJMxH2" ><a href="//imgur.com/a/yxJMxH2">ICON</a></blockquote>
-            </div>
-            </div>
+        </div>
 
         <div class="sidebar">
             <div class="sidebar-section">
@@ -344,8 +336,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/NV0Z/DROPBOT/refs/hea
             alert('Script text has been selected. Press COPY or Ctrl+C / Cmd+C.');
         });
     </script>
-    
-    <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
 </body>
 </html>
